@@ -1,18 +1,12 @@
 #!/bin/sh -x
+# ver0.01 2017/06/16 first version
 
-# envrionment
-# ip
-# port
-# servercfgfile
-# map
+setf=setting_file.txt
 
-#default
-ip=192.168.1.xxx
-port=27015
-servercfgfile=server.cfg
-map=nmo_broadway
-
-cd server
+while read line
+do
+	$line
+done<$setf
 
 echo hostname=`hostname`
 if [ -z $1];then
@@ -31,6 +25,8 @@ set timeout 0
 spawn /home/user/nmrih/server/srcds_run -game nmrih +ip $ip -port $port +servercfgfile ${servercfgfile} +map ${map} -maxplayers 8 -insecure
 expect \"VAC secure mode disabled.\"
 send \"changelevel ${map}\n\"
+expect \"VAC secure mode disabled.\"
+send \"status\n\"
 interact
 "
 
