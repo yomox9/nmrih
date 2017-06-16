@@ -1,8 +1,10 @@
 #!/bin/sh
 
-for a in "steamcmd_linux.tar.gz" "steamcmd.sh" "server"
+ls -laF "steamcmd_linux.tar.gz" "steamcmd.sh" "server/nmrih/cfg/"
+for a in "server"
 do
-	printf "$a="
-	if [ -e $a ];then echo Exist; else echo nothing; fi
+	printf "$a directory="
+	if [ -d $a ];then echo Exist; else echo nothing; fi
 done
 echo hostname=`hostname`
+cat server_setting.txt
