@@ -1,7 +1,7 @@
 #!/bin/bash
 shellver="2017/06/16 ver0.01 first version"
 
-select ans in "status" "get_server_files" "make_setting" "install_config" "run server" "run NP25S" "run ThinkpadX31" "run ThinkpadX60" "get_config" "delete" "git_push" "quit"
+select ans in "status" "get_server_files" "make_setting" "install_config" "run server" "run NP25S" "run ThinkpadX31" "run ThinkpadX60" "get_config" "delete" "get_map" "git_push" "quit"
 do
 	echo ======================================================
 	if [ -z "$ans" ];then
@@ -46,6 +46,9 @@ do
 				echo really?; select ans in "yes" "no"; do if [ "$ans" = "yes" ];then
 					./delete.sh
 				fi; break; done
+				;;
+			"get_map" )
+				./get_map.sh
 				;;
 			"git_push" )
 				./git_push.sh

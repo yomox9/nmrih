@@ -1,6 +1,5 @@
 #!/bin/sh
 
-clear
 path_sv=server/nmrih
 
 getfile(){
