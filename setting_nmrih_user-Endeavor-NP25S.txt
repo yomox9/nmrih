@@ -1,0 +1,7 @@
+ip=192.168.112.80
+port=27080
+servercfgpath=servercfg
+servercfgfile=server_np25s.cfg
+mapcyclepath=mapcycle
+mapcycle=mapcycle_all.txt
+map=random
