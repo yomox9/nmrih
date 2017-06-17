@@ -1,6 +1,6 @@
 #!/bin/sh -ex
 
-setf=setting_file.txt
+setf=setting_nmrih_`hostname`.txt
 
 servercfgpath=servercfg
 mapcyclepath=mapcycle
@@ -10,8 +10,9 @@ if [ `hostname` = user-Endeavor-NP25S ];then
 	port=27080
 	servercfgfile=server_np25s.cfg
 	mapcycle=mapcycle_all.txt
+	map=random
 fi
-cp -p ${servercfgpath}/${servercfgfile} server/nmrih/cfg/
+#cp -p ${servercfgpath}/${servercfgfile} server/nmrih/cfg/
 ls -laF $servercfgpath/$servercfgfile server/nmrih/cfg/$servercfgfile
 echo -----------------------------------------
 rm $setf
@@ -25,6 +26,7 @@ servercfgpath=$servercfgpath
 servercfgfile=$servercfgfile
 mapcyclepath=$mapcyclepath
 mapcycle=$mapcycle
+map=$map
 END
 echo -----------------------------------------
 cat $setf
