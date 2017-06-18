@@ -4,4 +4,5 @@ package/
 public/
 server/
 steam/
-
+nmrih_d.log
+*.swp

@@ -25,11 +25,11 @@ echo -----------------------------------------------------
 sleep 1
 
 expect -c "
-set timeout 180
+set timeout 30
 spawn /home/user/nmrih/server/srcds_run -game nmrih +ip $ip -port $port +servercfgfile ${servercfgfile} +map ${map} -maxplayers 8 -insecure
 expect \"VAC secure mode disabled.\"
 send \"changelevel ${map}\n\"
-expect \"VAC secure mode disabled.\"
+expect \"cfg/motd_text.txt' was not found.\)\"\n
 send \"status\n\"
 interact
 "
