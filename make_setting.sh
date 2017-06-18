@@ -5,14 +5,13 @@ setf=setting_nmrih_`hostname`.txt
 servercfgpath=servercfg
 mapcyclepath=mapcycle
 
-if [ `hostname` = user-Endeavor-NP25S ];then
+if [ `hostname` = np25s ];then
 	ip=192.168.112.80
 	port=27080
 	servercfgfile=server_np25s.cfg
 	mapcycle=mapcycle_all.txt
 	map=random
 fi
-#cp -p ${servercfgpath}/${servercfgfile} server/nmrih/cfg/
 ls -laF $servercfgpath/$servercfgfile server/nmrih/cfg/$servercfgfile
 echo -----------------------------------------
 rm $setf
@@ -29,4 +28,5 @@ mapcycle=$mapcycle
 map=$map
 END
 echo -----------------------------------------
+echo cat $setf
 cat $setf
