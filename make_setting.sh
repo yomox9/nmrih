@@ -5,6 +5,9 @@ setf=setting_nmrih_`hostname`.txt
 servercfgpath=servercfg
 mapcyclepath=mapcycle
 
+echo hostname=`hostname`
+
+echo -----------------------------------------
 if [ `hostname` = np25s ];then
 	ip=192.168.112.80
 	port=27080
@@ -12,6 +15,24 @@ if [ `hostname` = np25s ];then
 	mapcycle=mapcycle_all.txt
 	map=random
 fi
+echo -----------------------------------------
+if [ `hostname` = tpx31 ];then
+	ip=192.168.112.81
+	port=27081
+	servercfgfile=server_tpx31.cfg
+	mapcycle=mapcycle_all.txt
+	map=random
+fi
+echo -----------------------------------------
+if [ `hostname` = tpx60t ];then
+	ip=192.168.112.82
+	port=27082
+	servercfgfile=server_tpx60t.cfg
+	mapcycle=mapcycle_all.txt
+	map=random
+fi
+echo -----------------------------------------
+echo -----------------------------------------
 ls -laF $servercfgpath/$servercfgfile server/nmrih/cfg/$servercfgfile
 echo -----------------------------------------
 rm $setf
