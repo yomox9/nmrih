@@ -1,0 +1,7 @@
+ip=192.168.112.81
+port=27081
+servercfgpath=servercfg
+servercfgfile=server_tpx31.cfg
+mapcyclepath=mapcycle
+mapcycle=mapcycle_all.txt
+map=random
