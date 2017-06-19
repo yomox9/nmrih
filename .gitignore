@@ -4,5 +4,8 @@ package/
 public/
 server/
 steam/
-nmrih_d.log
+*.log
 *.swp
+*.lock
+nohup.out
+
