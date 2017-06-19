@@ -7,6 +7,6 @@ steam/
 *.log
 *.swp
 *.lock
-nohup.out
 *.zip
+nohup.out
 
