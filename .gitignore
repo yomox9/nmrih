@@ -8,4 +8,5 @@ steam/
 *.swp
 *.lock
 nohup.out
+*.zip
 
