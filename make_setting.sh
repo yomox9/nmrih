@@ -1,4 +1,4 @@
-#!/bin/sh -ex
+#!/bin/sh
 
 setf=setting_nmrih_`hostname`.txt
 
@@ -33,9 +33,12 @@ if [ `hostname` = tpx60t ];then
 fi
 echo -----------------------------------------
 echo -----------------------------------------
-ls -laF $servercfgpath/$servercfgfile server/nmrih/cfg/$servercfgfile
+echo ls -laF $servercfgpath/$servercfgfile
+ls -laF $servercfgpath/$servercfgfile
 echo -----------------------------------------
-rm $setf
+if [ -e $setf ];then
+	rm $setf
+fi
 while read line
 do
 	echo $line>>$setf
