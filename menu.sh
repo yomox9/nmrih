@@ -2,7 +2,7 @@
 shellver="2017/06/18 ver0.02 fix"
 shellver="2017/06/16 ver0.01 first version"
 
-select ans in "status" "get_server_files" "make_setting" "install_config" "run server" "run np25s" "run ThinkpadX31" "run ThinkpadX60" "get_config" "delete" "get_map" "git_push" "quit"
+select ans in "status" "get_package" "get_server_files" "make_setting" "install_config" "run server" "run np25s" "run ThinkpadX31" "run ThinkpadX60" "get_config" "delete" "get_map" "git_push" "quit"
 do
 	echo ======================================================
 	if [ -z "$ans" ];then
@@ -13,6 +13,11 @@ do
 			"status" )
 				echo shellver=$shellver
 				./status.sh;;
+			"get_package" )
+				echo really?; select ans in "yes" "no"; do if [ "$ans" = "yes" ];then
+					./get_package.sh
+				fi; break; done
+				;;
 			"get_server_files" )
 				echo really?; select ans in "yes" "no"; do if [ "$ans" = "yes" ];then
 					./get_nmrihserver.sh
