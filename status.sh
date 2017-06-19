@@ -19,7 +19,10 @@ echo line=`wc -l server/nmrih/mapcycle*.txt`
 echo --- "ls -1 server/nmrih/maps/*.bsp | wc -l" ---------
 echo There are `ls -1 server/nmrih/maps/*.bsp | wc -l` maps
 echo -----------------------------------------------------
-cat server/nmrih/cfg/server_`hostname`.cfg 
+ls -laF server/nmrih/cfg/server_common.cfg server/nmrih/cfg/server_`hostname`.cfg
+echo -----------------------------------------------------
+cat server/nmrih/cfg/server_`hostname`.cfg | head -3
+echo -----------------------------------------------------
 echo --- "ps -ef|grep srcds | grep -v grep" --------------
 ps -ef|grep srcds | grep -v grep
 echo -----------------------------------------------------

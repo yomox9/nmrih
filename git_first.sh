@@ -16,4 +16,5 @@ git remote -v | grep git@github.com:yomox9/nmrih.git
 if [ ! $? ];then
 	git remote add nmrih git@github.com:yomox9/nmrih.git
 fi
+git config --global push.default matching
 git clone https://github.com/yomox9/nmrih
