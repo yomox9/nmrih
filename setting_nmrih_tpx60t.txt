@@ -1,5 +1,5 @@
-ip=192.168.112.82
-port=27082
+ip=192.168.111.150
+port=27050
 servercfgpath=servercfg
 servercfgfile=server_tpx60t.cfg
 mapcyclepath=mapcycle

@@ -6,7 +6,7 @@ getfile(){
 	#echo 1=$1 2=$2 3=$3
 	if [ "$3" = "silence" ];then
 		echo wget silence $1 $2 $3
-		wget -c -nv http://nmrih.yomox9.club/steamcmd/nmrihsrv/nmrih/$1/$2>null 2>&1
+		wget -c -nv http://nmrih.yomox9.club/steamcmd/nmrihsrv/nmrih/$1/$2>/dev/null 2>&1
 	else
 		echo wget -c -nv http://nmrih.yomox9.club/steamcmd/nmrihsrv/nmrih/$1/$2
 		wget -c -nv http://nmrih.yomox9.club/steamcmd/nmrihsrv/nmrih/$1/$2
@@ -46,13 +46,12 @@ get_main(){
 		#echo ___ this is nms _____________________________
 		get_bsp_nav_sound
 	else
-		echo ___ this is unknown _____________________________
+		echo ___ this is unknown. prefix=${prefix} ________
 	fi
 }
 
 while read line
 do
-	echo 
 	echo /// line=$line /////////////////////////////////////
 	if [ ! $line = nmo_L4D_the_sacrifice_v1 ];then
 		get_main

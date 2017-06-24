@@ -4,7 +4,10 @@ setf=setting_nmrih_`hostname`.txt
 
 echo -----------------------------------------------------
 echo hostname=`hostname`
-ls -laF "steamcmd_linux.tar.gz" "steamcmd.sh" "server/nmrih/cfg/"
+ls -laF "steamcmd_linux.tar.gz" "steamcmd.sh"
+echo -----------------------------------------------------
+ls -laF server/nmrih/cfg/*.cfg
+echo -----------------------------------------------------
 for a in "server"
 do
 	printf "$a directory="
@@ -22,8 +25,8 @@ echo -----------------------------------------------------
 ls -laF server/nmrih/cfg/server_common.cfg server/nmrih/cfg/server_`hostname`.cfg
 echo -----------------------------------------------------
 cat server/nmrih/cfg/server_`hostname`.cfg | head -3
-echo -----------------------------------------------------
-echo --- "ps -ef|grep srcds | grep -v grep" --------------
+echo --- process -----------------------------------------
+echo --- "ps -ef|grep srcds_linux | grep -v grep" --------
 ps -ef|grep srcds | grep -v grep
 echo -----------------------------------------------------
 
