@@ -22,7 +22,7 @@ if [ $map = random ];then
 	echo map=$map
 fi
 echo -----------------------------------------------------
-sleep 1
+#sleep 1
 
 #expect \"cfg/motd_text.txt' was not found.\)\n\"
 #send \"status\n\"
