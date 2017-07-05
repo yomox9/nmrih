@@ -1,0 +1,7 @@
+ip=192.168.112.104
+port=27015
+servercfgpath=servercfg
+servercfgfile=server_fmvmg70r.cfg
+mapcyclepath=mapcycle
+mapcycle=mapcycle_lowpc.txt
+map=random

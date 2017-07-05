@@ -1,0 +1,7 @@
+ip=192.168.112.40
+port=27015
+servercfgpath=servercfg
+servercfgfile=server_g33.cfg
+mapcyclepath=mapcycle
+mapcycle=mapcycle_all.txt
+map=random
