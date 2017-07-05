@@ -1,42 +1,33 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 STEAMROOT="$(cd "${0%/*}" && echo $PWD)"
-STEAMCMD=`basename "$0" .sh`
+STEAMEXE=`basename "$0" .sh`
 
-UNAME=`uname`
-if [ "$UNAME" == "Linux" ]; then
-  STEAMEXE="${STEAMROOT}/linux32/${STEAMCMD}"
-  PLATFORM="linux32"
-  export LD_LIBRARY_PATH="$STEAMROOT/$PLATFORM:$LD_LIBRARY_PATH"
-else # if [ "$UNAME" == "Darwin" ]; then
-  STEAMEXE="${STEAMROOT}/${STEAMCMD}"
-  if [ ! -x ${STEAMEXE} ]; then
-    STEAMEXE="${STEAMROOT}/Steam.AppBundle/Steam/Contents/MacOS/${STEAMCMD}"
-  fi
-  export DYLD_LIBRARY_PATH="$STEAMROOT:$DYLD_LIBRARY_PATH"
-  export DYLD_FRAMEWORK_PATH="$STEAMROOT:$DYLD_FRAMEWORK_PATH"
-fi
+PLATFORM=linux32 # dedicated server build (minimal dependencies)
+
+# prepend our lib path to LD_LIBRARY_PATH
+export LD_LIBRARY_PATH="$STEAMROOT/$PLATFORM:$LD_LIBRARY_PATH"
 
 ulimit -n 2048
 
 MAGIC_RESTART_EXITCODE=42
 
+# and launch steam
 if [ "$DEBUGGER" == "gdb" ] || [ "$DEBUGGER" == "cgdb" ]; then
-  ARGSFILE=$(mktemp $USER.steam.gdb.XXXX)
+	ARGSFILE=$(mktemp $USER.steam.gdb.XXXX)
 
-  # Set the LD_PRELOAD varname in the debugger, and unset the global version.
-  if [ "$LD_PRELOAD" ]; then
-    echo set env LD_PRELOAD=$LD_PRELOAD >> "$ARGSFILE"
-    echo show env LD_PRELOAD >> "$ARGSFILE"
-    unset LD_PRELOAD
-  fi
+	# Set the LD_PRELOAD varname in the debugger, and unset the global version. 
+	if [ "$LD_PRELOAD" ]; then
+		echo set env LD_PRELOAD=$LD_PRELOAD >> "$ARGSFILE"
+		echo show env LD_PRELOAD >> "$ARGSFILE"
+		unset LD_PRELOAD
+	fi
 
-  $DEBUGGER -x "$ARGSFILE" "$STEAMEXE" "$@"
-  rm "$ARGSFILE"
+	$DEBUGGER -x "$ARGSFILE" "$STEAMROOT/$PLATFORM/$STEAMEXE" "$@"
+	rm "$ARGSFILE"
 else
-  $DEBUGGER "$STEAMEXE" "$@"
+	$DEBUGGER "$STEAMROOT/$PLATFORM/$STEAMEXE" "$@"
 fi
-
 STATUS=$?
 
 if [ $STATUS -eq $MAGIC_RESTART_EXITCODE ]; then

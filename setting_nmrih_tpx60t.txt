@@ -1,7 +1,7 @@
-ip=192.168.111.150
-port=27050
+ip=192.168.112.82
+port=27082
 servercfgpath=servercfg
 servercfgfile=server_tpx60t.cfg
 mapcyclepath=mapcycle
-mapcycle=mapcycle_all.txt
+mapcycle=mapcycle_lowpc.txt
 map=random
