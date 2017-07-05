@@ -1,0 +1,7 @@
+ip=
+port=
+servercfgpath=servercfg
+servercfgfile=
+mapcyclepath=mapcycle
+mapcycle=
+map=
